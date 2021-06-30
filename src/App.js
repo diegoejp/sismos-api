@@ -21,9 +21,9 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <h1 className="text-center mb-5">Consulta Sismos por Fecha Chile</h1>
+            <h1 className="text-center mb-5 display-1">Consulta Sismos por Fecha Chile</h1>
           </div>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <h2>Ingresa Fecha</h2>
             <p>Formato : YYYYMMDD</p>
             <p>Ejemplo: 20200312</p>
@@ -36,7 +36,7 @@ function App() {
               onClick={consultarsismos}
             >Analizar Fecha</button>
           </div>
-          <div className="col-md-10">
+          <div className="col-md-9">
             <h2>Resultados: {sismos.length}</h2>
             <div className="accordion" id="accordionExample">
               {
@@ -44,11 +44,11 @@ function App() {
                 sismos.map((sismo, index) => {
                   return (
                     <>
-                      <div className="accordion-item"
+                      <div className="accordion-item mb-4"
                         key={index}>
                         <h2 className="accordion-header" id="headingOne">
                           <button
-                            className="accordion-button collapsed"
+                            className="accordion-button collapsed fs-5"
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target={"#collapse" + index}
@@ -65,25 +65,20 @@ function App() {
                           data-bs-parent="#accordionExample"
                         >
                           <div className="accordion-body">
-                            <div className="card mb-3" style={{ maxWidth: 540 }}>
-                              <div className="row g-0">
-                                <div className="col-md-4">
-                                  <img src={`${sismo.imagen}`} className="img-fluid rounded-start" alt="..." />
-                                </div>
-                                <div className="col-md-8">
-                                  <div className="card-body">
-                                    <h5 className="card-title">Card title</h5>
-                                    <p className="card-text">
-                                      This is a wider card with supporting text below as a natural lead-in
-                                      to additional content. This content is a little bit longer.
-                                    </p>
-                                    <p className="card-text">
-                                      <small className="text-muted">Last updated 3 mins ago</small>
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                           <div className="row">
+                             <div className="col-6">
+                               <img className="img-fluid w-100" src={sismo.imagen} alt="" />
+                             </div>
+                             <div className="col-6">
+                               <ul className="list-group mt-5">
+                                  <li className="list-group-item fs-2"><strong>Magnitud:</strong> {sismo.magnitudes[0].magnitud} ML</li>
+                                  <li className="list-group-item fs-2"><strong>Latitud:</strong> {sismo.latitud}</li>
+                                  <li className="list-group-item fs-2"><strong>Longitud:</strong> {sismo.longitud}</li>
+                                  <li className="list-group-item fs-2"><strong>Profundidad:</strong> {sismo.profundidad}</li>
+                                  <li className="list-group-item fs-2"><strong>Geo Referencia:</strong> {sismo.geoReferencia}</li>
+                               </ul>
+                             </div>
+                           </div>
 
                           </div>
                         </div>
@@ -94,6 +89,15 @@ function App() {
               }
             </div>
 
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col-12">
+            <footer>
+              <h2 className="lead">
+                Creado por ®diegoejp Todos los derechs reservados.😎
+              </h2>
+            </footer>
           </div>
         </div>
       </div>
