@@ -19,6 +19,7 @@ function App() {
           </div>
           <div className="col-md-4">
             <h2>Ingresa Fecha</h2>
+            <button className="btn btn-primary">Analizar Fecha</button>
           </div>
           <div className="col-md-8">
             <h2>Resultados</h2>
